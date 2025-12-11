@@ -1,0 +1,10 @@
+[package]
+name = "rust_webdev"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+axum = "0.7"
+tokio = { version = "1", features = ["full"] }
+askama = "0.12" # Type-safe templating
+askama_axum = "0.4" # Axum integration for Askama

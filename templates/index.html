@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rust + HTMX</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <style>
+        body { font-family: sans-serif; padding: 2rem; }
+        button { padding: 10px 20px; cursor: pointer; }
+        .box { border: 2px solid #333; padding: 20px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Rust + HTMX Demo</h1>
+
+    <div id="result-box" class="box">
+        <p>I am static HTML content.</p>
+        <button hx-post="/clicked" hx-swap="innerHTML" hx-target="#result-box">
+            Click me to ask Rust for new HTML!
+        </button>
+    </div>
+</body>
+</html>
