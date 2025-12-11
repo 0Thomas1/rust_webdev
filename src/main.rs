@@ -23,7 +23,6 @@ async fn main() {
     let app = Router::new()
         .route("/", get(index))
         .route("/clicked", post(clicked));
-
     println!("Listening on http://localhost:3000");
 
     // 4. Run the server
@@ -43,3 +42,4 @@ async fn clicked() -> ClickedTemplate {
     
     ClickedTemplate { time: time_str }
 }
+
