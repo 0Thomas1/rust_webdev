@@ -16,13 +16,19 @@ struct IndexTemplate;
 struct ClickedTemplate {
     time: String,
 }
+#[derive(Template)]
+#[template(source = "<div>{{text}}</div>", ext ="html")]
+struct DivTemplate {
+    text:String,
+}
 
 #[tokio::main]
 async fn main() {
     // 3. Build the Router
     let app = Router::new()
         .route("/", get(index))
-        .route("/clicked", post(clicked));
+        .route("/clicked", post(clicked))
+        .route("/div", get(show_div));
     println!("Listening on http://localhost:3000");
 
     // 4. Run the server
@@ -43,3 +49,8 @@ async fn clicked() -> ClickedTemplate {
     ClickedTemplate { time: time_str }
 }
 
+async fn show_div() -> DivTemplate{
+    let message:String = "Hello API".to_string();
+
+    DivTemplate{ text: message }
+}
